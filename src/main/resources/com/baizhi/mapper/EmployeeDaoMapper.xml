@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.EmployeeDao">
+
+    <insert id="saveEm" parameterType="Employee">
+		insert into t_employee values(#{id},#{name},#{salary},#{age})
+	</insert>
+
+    <select id="findEmployees" resultType="Employee">
+		select id,name,salary,age
+		from t_employee
+	</select>
+
+    <delete id="deleteEmployee">
+		delete from t_employee
+		where id=#{id}
+	</delete>
+
+    <update id="updateEmployee">
+		update t_employee set name=#{name},salary=#{salary},age=#{age}
+   		where id=#{id}
+	</update>
+
+    <select id="findOneEmployee" resultType="Employee">
+		select id,name,salary,age
+		from t_employee
+		where id=#{id}
+	</select>
+
+
+</mapper>
